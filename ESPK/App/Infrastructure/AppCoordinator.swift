@@ -2,8 +2,10 @@ import SwiftUI
 
 // Экранные состояния приложения
 public enum AppScreen {
+    case placeholder
+    
     case welcome
-    case main
+    case login
 }
 
 // Координатор, отвечающий за текущее состояние приложения
@@ -22,10 +24,12 @@ public final class AppCoordinator: ObservableObject {
     // Определяет стиль фона для конкретного экрана
     public func backgroundStyle(for screen: AppScreen) -> AppBackgroundStyle {
         switch screen {
+        case .placeholder:
+            return .brandDeep
         case .welcome:
             return .brandDeep
-        case .main:
-            return .glassLight
+        case .login:
+            return .brandSoft
         }
     }
 }

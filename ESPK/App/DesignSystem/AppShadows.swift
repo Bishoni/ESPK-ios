@@ -7,6 +7,7 @@ public enum AppShadows {
     
     // Text-specific shadows
     public static let textSoft = ShadowStyle(color: .black.opacity(0.10), radius: 1, x: 0, y: 1)
+    public static let textMedium = ShadowStyle(color: .black.opacity(0.22), radius: 2, x: 0, y: 1)
     public static let textStrong = ShadowStyle(color: .black.opacity(0.35), radius: 4, x: 0, y: 2)
     
     // Brand glow shadows for text

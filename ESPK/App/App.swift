@@ -36,14 +36,26 @@ struct ESPKApp: App {
         switch appCoordinator.currentScreen {
         case .welcome:
             WelcomeView(onContinue: {
-                appCoordinator.navigate(to: .main)
+                appCoordinator.navigate(to: .login)
             })
             .transition(.opacity)
 
-        case .main:
-            MainView(onLogout: {
-                appCoordinator.navigate(to: .welcome)
-            })
+        case .login:
+            LoginView(
+                onAuthorized: { appCoordinator.navigate(to: .placeholder) },
+                onRegister: { /* переход на регистрацию */ },
+                onForgot: { /* переход на восстановление */ }
+            )
+            .transition(.opacity)
+
+        case .placeholder:
+            PlaceholderView(
+                title: "Раздел в разработке",
+                message: "Скоро здесь появится функционал.",
+                systemIconName: "hammer",
+                onBack: { appCoordinator.navigate(to: .login) }
+            )
+            .transition(.opacity)
         }
     }
 }
